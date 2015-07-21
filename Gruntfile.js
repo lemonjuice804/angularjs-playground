@@ -25,8 +25,10 @@ module.exports = function(grunt) {
             }
         },
         cssmin: {
-            src: 'app/public/css/production.css',
-            dest: 'app/public/css/production.min.css'
+            css: {
+                src: 'app/public/css/production.css',
+                dest: 'app/public/css/production.min.css'
+            }
         },
         uglify: {
             js: {
