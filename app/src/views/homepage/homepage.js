@@ -1,14 +1,14 @@
 "use strict";
 
-angular.module('myApp.homepage', ['ngRoute'])
+angular.module('myApp.homepage', ['ngRoute', 'myApp.config'])
 
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', 'config', function($routeProvider, config) {
   $routeProvider.when('/home', {
-    templateUrl: 'public/html/homepage/homepage.html',
+    templateUrl: config.HTML_PATH + 'homepage/homepage.html',
     controller: 'HomepageCtrl'
   });
 }])
 
-.controller('HomepageCtrl', [function() {
-
+.controller('HomepageCtrl', ['$scope', 'config', function($scope, cfg) {
+    $scope.imgSrc = cfg.IMG_PATH;
 }]);

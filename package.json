@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "description": "A starter project for AngularJS",
   "repository": "https://github.com/lemonjuice804/angularjs-playground.git",
-  "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.1",
     "grunt": "^0.4.5",
@@ -24,7 +23,7 @@
     "shelljs": "^0.2.6"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower install\n grunt",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1",
     "pretest": "npm install",

@@ -10,6 +10,6 @@ angular.module('myApp.author.author-directive', [])
 
 .directive('appAuthor', ['authorName', 'authorEmail', function(name, email) {
     return function(scope, ele, attrs) {
-        ele.text(name + '    Email: ' + email);
+        ele.html(name + '<br>Email: ' + email);
     };
 }]);
