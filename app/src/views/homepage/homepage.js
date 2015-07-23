@@ -11,4 +11,17 @@ angular.module('myApp.homepage', ['ngRoute', 'myApp.config'])
 
 .controller('HomepageCtrl', ['$scope', 'config', function($scope, cfg) {
     $scope.imgSrc = cfg.IMG_PATH;
+    $scope.images = [{
+        name: 'image1.jpg',
+        alt: 'Alaska'
+    }, {
+        name: 'image2.jpg',
+        alt: 'Alaska'
+    }, {
+        name: 'image3.jpg',
+        alt: 'Alaska'
+    }, {
+        name: 'image4.jpg',
+        alt: 'Alaska'
+    }];
 }]);
