@@ -2,18 +2,20 @@ module.exports = function(grunt) {
 
     // Project configuration.
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-        // jshint: {
-        //     // files: ['Gruntfile.js', 'app/src/**/*.js', 'app/*.js'],
-        //     // options: {
-        //     //     globals: {
-        //     //         jQuery: true,
-        //     //         console: true,
-        //     //         undef: true,
-        //     //         predef: ["angular"]
-        //     //     }
-        //     // }
-        // },
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            gruntfile: {
+                src: 'Gruntfile.js'
+            },
+            all: [
+                'Gruntfile.js',
+                'app/src/**/*.js',
+                'app/*.js',
+                '!app/src/**/*_test.js'
+            ]
+        },
         concat: {
             js: {
                 src: ['app/*.js', 'app/src/**/*.js', '!app/src/**/*_test.js'],
@@ -49,13 +51,13 @@ module.exports = function(grunt) {
     });
 
     // Load the plugin that provides the "uglify" task.
-    //grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'cssmin', 'uglify', 'copy']);
+    grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'copy']);
 
 };

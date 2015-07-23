@@ -9,7 +9,7 @@ angular.module('myApp.author', [
 angular.module('myApp.author.author-directive', [])
 
 .directive('appAuthor', ['authorName', 'authorEmail', function(name, email) {
-    return function(scope, ele, attrs) {
+    return function(scope, ele) {
         ele.html(name + '<br>Email: ' + email);
     };
 }]);
