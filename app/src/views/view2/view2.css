@@ -1,0 +1,16 @@
+.view2 input {
+  margin-left: 5px;
+}
+
+.view2 ul li {
+  margin: auto;
+}
+
+.view2 ul li:first-child {
+  margin-top: 15px;
+}
+
+.view2 ul li img {
+  border-width: 1px;
+  border-color: gray;
+}
