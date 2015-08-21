@@ -55,13 +55,18 @@ angular.module('myApp.view2', ['ngRoute', 'myApp.config'])
     };
 
     $scope.submitArtist = function() {
+        if ($scope.data.artist === undefined ||
+            $scope.data.artist === null ||
+            $scope.data.artist.trim() === "") {
+            // text is empty.
+            return;
+        }
+
         this.updateArtist();
 
         myFactory.callItunes()
             .then(function(data){
                 $scope.data.artistData = data.results;
-            }, function(data){
-                console.log(data);
             });
     };
 }]);
