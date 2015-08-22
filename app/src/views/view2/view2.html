@@ -5,7 +5,11 @@
   <ul>
     <li ng-repeat="res in data.artistData | limitTo: 10">
       <img ng-src="{{res.artworkUrl100}}">
-      <div class="inline-block">{{res.collectionName}}</div>
+      <div class="inline-block res-description">
+        <span class="track-name">{{res.trackName}}</span>
+        <span class="collection-name">{{res.collectionName}}</span>
+        <span class="artist-name">{{res.artistName}}</span>
+      </div>
     </li>
   </ul>
 </div>

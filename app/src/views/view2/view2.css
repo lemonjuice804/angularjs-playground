@@ -2,19 +2,44 @@
   margin-left: 5px;
 }
 
+.view2 ul {
+  list-style: none;
+}
+
 .view2 ul li {
-  margin: auto;
+  margin: 20px;
 }
 
 .view2 ul li:first-child {
   margin-top: 15px;
 }
 
+.view2 ul li:nth-child(odd) {
+  background-color: #F3FCFF;
+}
+
 .view2 ul li img {
-  border-width: 1px;
-  border-color: gray;
+  border-width: 1px solid gray;
 }
 
 .view2 i.glyphicon-search {
   font-size: 1.5em;
+  cursor: pointer;
+}
+
+.view2 .res-description {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.view2 .res-description span {
+  display: block;
+}
+
+.view2 .res-description span.track-name {
+  font-weight: bold;
+}
+
+.view2 .res-description span.artist-name {
+  font-style: italic;
 }
