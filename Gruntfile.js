@@ -48,6 +48,20 @@ module.exports = function(grunt) {
                 }]
             }
         }
+        // watch: {
+        //     concat: {
+        //         files: ['app/*.js', 'app/src/**/*.js', 'app/*.css', 'app/src/**/*.css'],
+        //         tasks: ['concat']
+        //     },
+        //     copy: {
+        //         files: ['app/public/html/**'],
+        //         tasks: ['copy']
+        //     },
+        //     livereload: {
+        //         options: {livereload: true},
+        //         files: ['app/public/**/*']
+        //     }
+        // }
     });
 
     // Load the plugin that provides the "uglify" task.
@@ -56,6 +70,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    //grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
     grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'copy']);
