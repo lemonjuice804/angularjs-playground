@@ -28,7 +28,7 @@
 }
 
 .view2 .res-description {
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
 }
 
@@ -42,4 +42,22 @@
 
 .view2 .res-description span.artist-name {
   font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+  .view2 li img,
+  .view2 .collection-name {
+    display: none;
+  }
+}
+
+.view2 .result-buttons i {
+  border: 1px solid #7BA6D0;
+  padding: 5px 8px;
+  margin: 5px 5px 0px 0px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.view2 .result-buttons i > span {
+  margin-left: 2px;
 }

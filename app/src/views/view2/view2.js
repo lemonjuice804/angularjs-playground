@@ -49,6 +49,12 @@ angular.module('myApp.view2', ['ngRoute', 'myApp.config'])
 
 .controller('View2Ctrl', ['$scope', 'View2Factory', function($scope, myFactory) {
     $scope.data = {};
+    $scope.data.currentData = [];
+    $scope.resultShowed = false;
+
+    $scope.keywords = ['first', 'prev', 'next', 'end'];
+    $scope.currentIndex = 0;
+    $scope.limit = 10;
 
     $scope.updateArtist = function() {
         myFactory.setArtist($scope.data.artist);
@@ -67,6 +73,40 @@ angular.module('myApp.view2', ['ngRoute', 'myApp.config'])
         myFactory.callItunes()
             .then(function(data){
                 $scope.data.artistData = data.results;
+                $scope.data.currentData = $scope.data.artistData.slice($scope.currentIndex, $scope.limit);
+                $scope.resultShowed = true;
             });
+    };
+
+    $scope.showMoreResults = function(key) {
+
+        var len = $scope.data.artistData.length;
+
+        switch(key) {
+            case $scope.keywords[0]:
+                // first
+                $scope.currentIndex = 0;
+                break;
+            case $scope.keywords[1]:
+                // previous
+                $scope.currentIndex -= $scope.limit;
+                break;
+            case $scope.keywords[2]:
+                // next
+                $scope.currentIndex += $scope.limit;
+                break;
+            case $scope.keywords[3]:
+                // end
+                if (len % $scope.limit === 0) {
+                    $scope.currentIndex = len - $scope.limit;
+                } else {
+                    $scope.currentIndex = len - (len % $scope.limit);
+                }
+                break;
+            default:
+                break;
+        }
+
+        $scope.data.currentData = $scope.data.artistData.slice($scope.currentIndex, $scope.currentIndex + $scope.limit);
     };
 }]);
